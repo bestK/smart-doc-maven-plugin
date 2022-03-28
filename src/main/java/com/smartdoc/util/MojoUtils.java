@@ -30,7 +30,6 @@ import com.power.common.util.FileUtil;
 import com.power.common.util.StringUtil;
 import com.power.doc.model.*;
 import com.smartdoc.constant.GlobalConstants;
-
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
@@ -166,13 +165,13 @@ public class MojoUtils {
       }
     }));
     sourceCodePaths.add(SourceCodePath.builder()
-        .setPath(project.getBasedir() + FILE_SEPARATOR + GlobalConstants.SOURCE_CODE_PATH));
+            .setPath(project.getBasedir() + FILE_SEPARATOR + GlobalConstants.SOURCE_CODE_PATH));
     SourceCodePath[] codePaths = new SourceCodePath[sourceCodePaths.size()];
     sourceCodePaths.toArray(codePaths);
 
     log.info("Artifacts that the current project depends on: " + GSON.toJson(projectArtifacts));
-    log.info("Smart-doc has loaded the source code path: " + GSON.toJson(sourceCodePaths)
-        .replaceAll("\\\\", "/").replaceAll("//", "/"));
+    log.info("Artifacts that the current project depends on: " + GSON.toJson(projectArtifacts));
+    log.info("The staticDesc: " + apiConfig.getStaticDesc());
 
     apiConfig.setSourceCodePaths(codePaths);
   }
