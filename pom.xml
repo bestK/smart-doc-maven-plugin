@@ -16,7 +16,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/bestK/smart-doc-maven-pligun</url>
+            <url>https://maven.pkg.github.com/bestK/smart-doc-maven-plugin</url>
         </repository>
     </distributionManagement>
     <licenses>
