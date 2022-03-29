@@ -29,8 +29,11 @@ jobs:
       run: |
           echo ################# The token is: ${env.GITHUB_TOKEN}
           mkdir -p ~/.m2
-          echo "<settings><servers><server><id>bestK</id><username>$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')</username><password>\${env.GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
-          REPO="bestK::default::https://maven.pkg.github.com/bestK/*"
+          echo "<settings><servers><server><id>$(env.USER_NAME)</id><username>$(env.USER_NAME)</username><password>\${env.GITHUB_TOKEN}</password></server></servers></settings>
+          <profiles><profile><repositories><repository><id>$(env.USER_NAME)</id><url>https://maven.pkg.github.com/$(env.USER_NAME)/*</url></repository></repositories></profile></profiles>
+          " > ~/.m2/settings.xml
+          REPO="bestK::default::https://maven.pkg.github.com/$(env.USER_NAME)/*"
           mvn deploy -DaltReleaseDeploymentRepository="${REPO}" -DaltSnapshotDeploymentRepository="${REPO}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        USER_NAME: $(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')
