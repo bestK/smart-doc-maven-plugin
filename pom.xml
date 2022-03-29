@@ -75,6 +75,13 @@
             <version>2.4.1.1</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>bestK</id>
+            <url>https://maven.pkg.github.com/bestk/*</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
@@ -146,13 +153,10 @@
                 </plugins>
             </build>
             <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
                 <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <id>bestK</id>
+                    <name>GitHub OWNER Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/bestK/smart-doc-maven-plugin</url>
                 </repository>
             </distributionManagement>
         </profile>
